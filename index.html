@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="text">
+    <div class="box" id="red">
+        <ul>
+            <li>Red</li>
+            <li>Red</li>
+            <li>Red</li>
+        </ul>
+    </div>
+    <div class="box" id="yellow">
+        <ul>
+            <li>Yellow</li>
+            <li>Yellow</li>
+            <li>Yellow</li>
+        </ul>
+    </div>
+    <div class="box" id="blue">
+        <ul>
+            <li>Blue</li>
+            <li>Blue</li>
+            <li>Blue</li>
+        </ul>
+    </div>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        input{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border-bottom: 2px solid #bbb;
+        }
+
+        input:focus{
+            border-bottom: 2px solid black;
+        }
+
+        .box{
+            width: 250px;
+            height: 250px;
+            display: grid;
+            place-items: center;
+        }
+
+        #red{
+            background-color: red;
+        }
+
+        #yellow{
+            background-color: yellow;
+        }
+
+        #blue{
+            background-color: blue;
+        }
+
+        .box ul{
+            all: unset;
+        }
+
+        .box ul li{
+            list-style: none;
+        }
+    </style>
+    <script>
+        let inp = document.querySelector("input")
+        let red = document.getElementById("red")
+        let yellow = document.getElementById("yellow")
+        let blue = document.getElementById("blue")
+
+        inp.addEventListener('input', function(){
+            if(inp.value === "red"){
+                yellow.style.display = "none"
+                blue.style.display = "none"
+            }
+            if(inp.value === "yellow"){
+                red.style.display = "none"
+                blue.style.display = "none"
+            }
+            if(inp.value === "blue"){
+                yellow.style.display = "none"
+                red.style.display = "none"
+            } else if (inp.value != "red" && inp.value !="yellow" && inp.value != "blue"){
+                red.style.display = "grid"
+                yellow.style.display = "grid"
+                blue.style.display = "grid"
+            }
+        })
+    </script>
+</body>
+</html>
